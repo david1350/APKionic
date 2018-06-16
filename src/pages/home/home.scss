@@ -1,0 +1,56 @@
+page-home {
+
+}
+.administradorColor{
+  color:White;
+}
+.fondoNegro {
+  background-image: url('../assets/swift.png');
+  width:100%; left:0%;
+  background-repeat: repeat;
+	background-position: center;
+	background-size: contain;
+
+  //width="130" height="130"
+}
+.fondoAdmin {
+  background-image: url('../assets/swiftadmin.png');
+  width:100%; left:0%;
+  background-repeat: repeat;
+  background-position: center;
+  background-size: contain;
+}
+.tamaño100{
+  width:100%;
+}
+.posicion1{
+  position:absolute;
+    width:60%; left:20%;
+    top:80%;
+    text-align:center;
+    margin:auto;
+}
+.colorParrafoBlanco{
+  color:White;
+}
+.textAdmin{
+  color:White;
+  width:90%; left:5%;
+  position: absolute;
+  text-align: right;
+  top:90%;
+
+}
+.posicionBotonBordeAbajo{
+  position:absolute;
+    width:100%; left:0%;
+    top:100%;
+    text-align:center;
+    margin:auto;
+  //position: absolute;
+
+  //float:center;
+	//align: center;
+	//left: 50%;
+//  border-bottom-right-radius: 50px;
+}

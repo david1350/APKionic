@@ -1,0 +1,41 @@
+<ion-menu [content]="content" >
+  <ion-header >
+    <ion-toolbar color="secondary">
+      <img src="./assets/logo.png" width="70" height="70"/>
+      <h5 class ="colorParrafoBlanco">Menu - Swift Service</h5>
+      <p class="colorParrafoBlanco">SwiftService@sw.com</p>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+
+
+    <ion-list>
+      <button menuClose ion-item (click)="openPage(inicio)">
+        Inicio
+      </button>
+      <button menuClose ion-item (click)="openPage(registrarPlatillo)">
+        Registrar Platillo
+      </button>
+      <button menuClose ion-item (click)="openPage(consultarPlatillo)">
+        Consultar Platillo
+      </button>
+      <button menuClose ion-item (click)="openPage(listarPlatillos)">
+        Listar Platillos
+      </button>
+      <button menuClose ion-item (click)="openPage(listarOrdenes)">
+        Listar Ordenes
+      </button>
+      <br>
+      <button menuClose ion-item (click)="openPage(acerca)">
+        Acerca De
+      </button>
+
+    </ion-list>
+
+
+
+</ion-content>
+</ion-menu>
+
+<ion-nav id="nav" #content [root]="inicio"></ion-nav>

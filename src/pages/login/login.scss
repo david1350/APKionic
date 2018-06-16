@@ -1,0 +1,33 @@
+page-login {
+
+}
+.fondoA {
+  background-image: url('../assets/swift_fondo_acercade.png');
+  background-repeat: repeat;
+	background-position: center;
+	background-size: contain;
+    width:100%; left:0%;
+
+}
+.posicionUserAmin{
+  position:absolute;
+    width:60%; left:20%;
+    top:30%;
+    text-align:center;
+    margin:auto;
+}
+.posicionPassAmin{
+  position:absolute;
+    width:60%; left:20%;
+    top:45%;
+    text-align:center;
+    margin:auto;
+}
+
+.posicionBotonAdmin{
+  position:absolute;
+    width:40%; left:30%;
+    top:60%;
+    text-align:center;
+    margin:auto;
+}
