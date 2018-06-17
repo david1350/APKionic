@@ -6,7 +6,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 
 
-import { ServiceProvider } from '../providers/service-provider';
+import { ServiciosGenerales } from '../providers/servicios-generales';
+import { ServiciosAdmin } from '../providers/servicios-admin';
+import { ServiciosCliente } from '../providers/servicios-cliente';
+
 import { GlobalProvider } from '../providers/global/global';
 import { LoadingController } from 'ionic-angular';
 
@@ -18,8 +21,10 @@ export class MyApp {
   rootPage:any = HomePage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen
-  ,public global: GlobalProvider, public service: ServiceProvider,
-    public loadingCtrl: LoadingController) {
+  ,public global: GlobalProvider, public serviciosGenerales: ServiciosGenerales,
+   public serviciosAdmin:ServiciosAdmin,
+   public serviciosCliente:ServiciosCliente,
+   public loadingCtrl: LoadingController) {
 
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
@@ -27,26 +32,42 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
     });
-      this.cargarServicios();
+      this.cargarServiciosGenerales();
+      this.cargarServiciosAdmin();
+      //get-CLIENTE
+      this.getServiciosCliente();
   }
 
 
     //metodo que permite cargar los servicios de la App
 
-   cargarServicios(){
+    cargarServiciosGenerales(){
 
       //cargar lista platillos
-      this.service.getListaPlatillos().subscribe(
+      this.serviciosGenerales.getListaPlatillos().subscribe(
       data=>this.global.platillos = data,
       err=>console.error(err)
       );
+    }
 
-      //cargar lista ordenes_admin
-      this.service.getListaOrdenes().subscribe(
+
+
+    cargarServiciosAdmin (){
+      this.serviciosAdmin.getListaOrdenes().subscribe(
       data=>this.global.listaOrdenes  = data,
       err=>console.error(err)
       );
 
+    }
+
+
+
+//METODOS GET CLIENTE.
+    getServiciosCliente (){
+      this.serviciosCliente.getpedidosHechos().subscribe(
+        data=>this.global.pedidosMesa = data,
+        err=>console.error(err)
+      );
     }
 
 

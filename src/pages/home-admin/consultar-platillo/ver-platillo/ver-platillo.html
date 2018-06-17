@@ -11,17 +11,17 @@
   </ion-navbar>
 
 </ion-header>
-
-
 <ion-content padding aling="center" class="fondoA">
   <h3>CONSULTAR PLATILLO</h3>
   <ion-item>
-    <ion-input type="text" placeholder="ID"></ion-input>
+    <ion-input type="text" placeholder="ID" id="nombre"></ion-input>
+    <h2>{{this.platilloBuscado.nombre}}</h2>
   </ion-item>
+
    <br>
    <img src="./assets/img_base.png" width="150" height="150"/>
 
-     <button ion-button full>CONSULTAR</button>
+     <button ion-button full (click)="buscarPlatillo()">CONSULTAR</button>
 
 
 

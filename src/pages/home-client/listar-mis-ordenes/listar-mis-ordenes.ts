@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { GlobalProvider } from '../../../providers/global/global';
 /**
  * Generated class for the ListarMisOrdenesPage page.
  *
@@ -15,11 +15,21 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ListarMisOrdenesPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+    costoTotalOrdenes:number;
+
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+  public global: GlobalProvider ) {
+    this.costoTotalOrdenes = 0;
+    this.calcularCostoTotalOrdenes();
+
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ListarMisOrdenesPage');
+  calcularCostoTotalOrdenes (){
+    for (let platillo of this.global.pedidosMesa) {
+        this.costoTotalOrdenes+=parseInt(platillo.costo_total);
+    }
   }
+
 
 }

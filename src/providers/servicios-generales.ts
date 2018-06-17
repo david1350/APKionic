@@ -12,23 +12,18 @@ import { Injectable } from '@angular/core';
 */
 
 @Injectable()
-export class ServiceProvider {
+export class ServiciosGenerales {
+
 
   refListaPlatillos:string;
-  refListOrdenes:string;
 
   constructor(public http:HttpClient) {
     this.refListaPlatillos = 'https://swiftservicefd.000webhostapp.com/ionic-app-servicios/jsonConsultarListaPlatillos.php';
-    this.refListOrdenes = 'https://swiftservicefd.000webhostapp.com/ionic-app-servicios/serviciosAdmin/wsJSONConsultarListaPedidosHechos.php';
   }
 
   //metodo para obtener la informacion en formato json.
   getListaPlatillos(){
   	return this.http.get(this.refListaPlatillos);
-  }
-
-  getListaOrdenes(){
-      return this.http.get(this.refListOrdenes);
   }
 
 }

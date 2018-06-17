@@ -16,8 +16,30 @@
 </ion-header>
 
 
-<ion-content padding class="fondoA">
-  <h1 align="center">ORDENES</h1>
-  <h2>MESA:</h2>
+<ion-content padding>
+  <h1>Mesa:</h1>
+
+  <ion-list  *ngFor="let orden of global.pedidosMesa" >
+    <ion-icon name="cart" item-start large></ion-icon>
+    <ion-card>
+    <ion-card-header>
+    Orden: #{{orden.id_pedido}}
+    </ion-card-header>
+
+    <ion-card-content>
+      <h3>Productos</h3>
+      {{orden.productos}}
+      <hr/>
+      <p>Observaciones: {{orden.observaciones}}</p>
+      <hr/>
+      <p>ESTADO: {{orden.estado}}</p>
+      <hr/><hr/>
+      <h2>Precio: ${{orden.costo_total}}</h2>
+
+     </ion-card-content>
+  </ion-card>
+
+  </ion-list>
+  <h3>Costo Total Ordenes $ {{costoTotalOrdenes}}</h3>
 
 </ion-content>

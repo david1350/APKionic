@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ServiciosAdmin } from '../../../../providers/servicios-admin';
 
 /**
  * Generated class for the VerPlatilloPage page.
@@ -15,11 +16,25 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class VerPlatilloPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  platilloBuscado:any = [];
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+  public servicio : ServiciosAdmin) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad VerPlatilloPage');
+  buscarPlatillo (){
+    this.servicio.consultarPlatillo().subscribe(
+    data=>this.platilloBuscado = data,
+    err=>console.error(err)
+    );
+    //console.log(this.platilloBuscado);
+    this.getDatos();
   }
+
+  getDatos (){
+    var nombre = document.getElementById("nombre").nodeValue;
+    console.log(nombre);
+  }
+
 
 }

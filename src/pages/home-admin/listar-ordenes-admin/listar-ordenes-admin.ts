@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { GlobalProvider } from '../../../providers/global/global';
+import { AlertController } from 'ionic-angular';
 /**
  * Generated class for the ListarOrdenesAdminPage page.
  *
@@ -16,11 +17,29 @@ import { GlobalProvider } from '../../../providers/global/global';
 export class ListarOrdenesAdminPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    public global: GlobalProvider) {
+    public global: GlobalProvider, public alerta: AlertController) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ListarOrdenesAdminPage');
+
+  cambiarEstadoPedido (){
+
+    const confirmar = this.alerta.create({
+      title: 'Cambiar Estado',
+      message: '¿Desea cambiar Estado de la orden a ENTREGADO?',
+      buttons: [
+      {
+        text: 'Atrás',
+        handler: ()=>{
+        }
+      },
+      {
+        text: 'Cambiar',
+        handler: ()=>{
+        }
+
+      }]
+    });
+      confirmar.present();
   }
 
 }

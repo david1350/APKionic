@@ -22,7 +22,11 @@ import { ListarMisOrdenesPage } from '../pages/home-client/listar-mis-ordenes/li
 import { AcercaDePage } from '../pages/acerca-de/acerca-de';
 import { HttpModule} from "@angular/http";
 import { HttpClientModule} from '@angular/common/http';
-import { ServiceProvider } from '../providers/service-provider';
+
+import { ServiciosGenerales } from '../providers/servicios-generales';
+import { ServiciosAdmin } from '../providers/servicios-admin';
+import { ServiciosCliente } from '../providers/servicios-cliente';
+
 import { GlobalProvider } from '../providers/global/global';
 import { ConsultarPlatilloPage } from '../pages/home-admin/consultar-platillo/consultar-platillo';
 import { VerPlatilloPage } from '../pages/home-admin/consultar-platillo/ver-platillo/ver-platillo';
@@ -108,7 +112,7 @@ import { HomeCPage} from '../pages/home-client/home-c/home-c';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ServiceProvider,
+    ServiciosGenerales, ServiciosAdmin, ServiciosCliente,
     GlobalProvider
   ]
 })

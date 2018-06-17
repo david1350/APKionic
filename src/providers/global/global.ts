@@ -15,6 +15,8 @@ export class GlobalProvider {
 	public listaOrden:any[];
 	public listaOrdenes:any;
 
+	public pedidosMesa:any;
+
 
   constructor(public http: HttpClient) {
   	this.listaOrden = [];

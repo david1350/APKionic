@@ -18,15 +18,34 @@
 <ion-content padding>
 
   <ion-list  *ngFor="let orden of global.listaOrdenes" >
-            <h5>Fecha: {{orden.fecha}}</h5>
-            <h5>Número Orden: {{orden.id_pedido}}</h5>
-            <h5>Mesa: {{orden.mesa}}</h5>
-            <h5>Platos de Orden: </h5>
-            <p>{{orden.productos}} /n</p>
-            <h5>OBSERVACIONES: </h5>
-            <p>{{orden.observaciones}}</p>
-            <h5>ESTADO ORDEN: {{orden.estado}}</h5>
-            <h2>Costo Pedido: ${{orden.costo_total}}</h2>
+
+      <ion-icon name="cart" item-start large></ion-icon>
+        <ion-card>
+          <ion-card-header>
+          Orden: #{{orden.id_pedido}}  - Mesa: {{orden.mesa}}
+          <hr/>
+          <h4>Fecha: {{orden.fecha}}</h4>
+          <hr/><hr/>
+          </ion-card-header>
+
+          <ion-card-content>
+            <h3>Productos</h3>
+            {{orden.productos}}
+            <hr/>
+            <p>Observaciones: {{orden.observaciones}}</p>
+            <hr/>
+             <button ion-button full   color="secondary"  *ngIf="orden.estado=='entregado'" disabled>
+             {{ orden.estado }}
+              <ion-icon name="checkmark-circle-outline"></ion-icon>
+             </button>
+             <button ion-button full *ngIf="orden.estado=='espera'" (click)="cambiarEstadoPedido()">
+               {{orden.estado}}
+              <ion-icon name="stopwatch"></ion-icon>
+             </button>
+            <hr/><hr/>
+            <h2>Precio: ${{orden.costo_total}}</h2>
+          </ion-card-content>
+        </ion-card>
   </ion-list>
 
 </ion-content>

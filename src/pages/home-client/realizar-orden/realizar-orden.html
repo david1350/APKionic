@@ -25,7 +25,7 @@
   <textarea  name="observaciones" rows="5" style="width:100%"></textarea>>
 
 
-  <ion-list  *ngFor="let platillo of global.listaOrden; let i"  (click)="removerPlatillo(index)">
+  <ion-list  *ngFor="let platillo of global.listaOrden; let i"  (click)="removerPlatillo(platillo)">
         <ion-item >
           <ion-avatar item-start>
             <img src="data:image/jpg;base64,{{platillo.imagen}}"  width="50" height="50" >
@@ -37,7 +37,7 @@
    </ion-list>
 
 
-  <h1>Costo Total $   </h1>
+  <h3>Costo Total $ {{costoPedido}}  </h3>
   <button ion-button  color="secondary" *ngIf='!puedeHacerPedido()' disabled class="posicionBotonBordeAbajo">ENVIAR ORDEN</button>
   <button ion-button  color="secondary" *ngIf='puedeHacerPedido()' enable class="posicionBotonBordeAbajo">ENVIAR ORDEN</button>
 

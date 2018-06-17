@@ -21,8 +21,14 @@ export class RealizarOrdenPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
   	public global: GlobalProvider, public alerta: AlertController) {
-  	console.log(this.global.listaOrden.length);
-    this.costoPedido = 0;
+      this.costoPedido = 0;
+      this.calcularCostoPedido();
+  }
+
+ calcularCostoPedido (){
+     for (let platillo of this.global.listaOrden) {
+        this.costoPedido+=parseInt(platillo.precio);
+     }
   }
 
 
@@ -34,7 +40,7 @@ export class RealizarOrdenPage {
   }
 
 
-  removerPlatillo(i:number){
+  removerPlatillo(platillo){
 
     const confirmar = this.alerta.create({
       title: 'Eliminar Plato',
@@ -48,13 +54,13 @@ export class RealizarOrdenPage {
       {
         text: 'Remover',
         handler: ()=>{
-           this.global.listaOrden.splice(i,1);
+           this.costoPedido-=parseInt(platillo.precio);
+           this.global.listaOrden.splice(platillo,1);
         }
 
       }]
     });
       confirmar.present();
   }
-
 
 }
