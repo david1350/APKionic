@@ -7,21 +7,26 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>ver-platillo</ion-title>
+    <ion-title>Swift Service</ion-title>
   </ion-navbar>
 
 </ion-header>
-<ion-content padding aling="center" class="fondoA">
-  <h3>CONSULTAR PLATILLO</h3>
+<ion-content padding  class="fondoA" aling="center">
+  <h3 class="textoCentrado">CONSULTAR PLATILLO</h3>
   <ion-item>
-    <ion-input type="text" placeholder="ID" id="nombre"></ion-input>
+    <ion-input type="text" placeholder="ID" ></ion-input>
     <h2>{{this.platilloBuscado.nombre}}</h2>
   </ion-item>
 
    <br>
-   <img src="./assets/img_base.png" width="150" height="150"/>
 
-     <button ion-button full (click)="buscarPlatillo()">CONSULTAR</button>
+
+   <img  src="./assets/img_base.png" width="150" height="150" class="imagenCentrada"/>
+
+
+   <button ion-button full (click)="buscarPlatillo()" class="botonDebajo">CONSULTAR</button>
+
+
 
 
 

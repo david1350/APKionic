@@ -20,6 +20,19 @@ page-home {
   background-position: center;
   background-size: contain;
 }
+.textoCentrado{
+  text-align:center;
+}
+.imagenCentrada{
+  position:relative;
+    width:50%; left:25%;
+}
+.botonDebajo{
+  position:absolute;
+    width:100%; left:0%;
+    text-align:center;
+}
+
 .tamaño100{
   width:100%;
 }

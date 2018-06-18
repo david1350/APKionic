@@ -15,7 +15,7 @@
 
 <ion-content padding class="fondoA">
 
-  <h3>EDITAR PLATILLO</h3>
+  <h3 align="center">EDITAR PLATILLO</h3>
   <ion-list>
   <ion-item>
     <ion-input type="text" placeholder="ID"></ion-input>
@@ -30,17 +30,17 @@
    <p>Categoria</p>
 
 <ion-list>
-   <ion-item>
-     <ion-label>Platillo Principal</ion-label>
-     <ion-checkbox color="dark" checked="false"></ion-checkbox>
+   <ion-item (click)="platillo()">
+     <ion-label >Platillo Principal</ion-label>
+     <ion-checkbox color="dark" checked="platillo"></ion-checkbox>
    </ion-item>
-   <ion-item>
+   <ion-item (click)="ensalada()">
      <ion-label>Ensalada</ion-label>
-     <ion-checkbox color="dark" checked="false"></ion-checkbox>
+     <ion-checkbox color="dark" checked="ensalada" ></ion-checkbox>
    </ion-item>
-   <ion-item>
+   <ion-item (click)="postre()">
      <ion-label>Postre</ion-label>
-     <ion-checkbox color="dark" checked="false"></ion-checkbox>
+     <ion-checkbox color="dark" checked="postre" ></ion-checkbox>
    </ion-item>
 
 </ion-list>
@@ -48,9 +48,10 @@
 <ion-item>
   <ion-input type="text" placeholder="$"></ion-input>
 </ion-item>
-   <img src="./assets/img_base.png" width="150" height="150"/>
+<br>
+   <img src="./assets/img_base.png" width="150" height="150" class="imagenCentrada"/>
   <div>
-     <button ion-button full>EDITAR</button>
+     <button ion-button class="botonDebajo">EDITAR</button>
   </div>
 
 </ion-content>
