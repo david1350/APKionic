@@ -26,17 +26,17 @@ export class EditarPlatilloPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad EditarPlatilloPage');
   }
-  platillo(){
+  platilloAccion(){
     this.platillo = true ;
     this.ensalada = false;
     this.postre = false;
   }
-  ensalada(){
+  ensaladaAccion(){
     this.platillo = false ;
     this.ensalada = true;
     this.postre = false;
   }
-  postre(){
+  postreAccion(){
     this.platillo = false ;
     this.ensalada = false;
     this.postre = true;
