@@ -26,10 +26,11 @@
         <ion-col col-9>
           <ion-item class="transparente" >
               <ion-input type="text" placeholder="Nombre" [(ngModel)]="datosPlatillo.nombre" name="nombre"></ion-input>
+              <button ion-button icon-end (click)="elegirGaleria()">FOTO</button>
           </ion-item>
         </ion-col>
         <ion-col col-3>
-          <button ion-button color="primary" (click)="opcionCapturaImagen()">FOTO</button>
+          <button ion-button color="primary">FOTO</button>
         </ion-col>
       </ion-row>
     </ion-grid>

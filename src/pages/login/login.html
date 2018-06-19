@@ -15,19 +15,32 @@
 
 <ion-content padding align="center" class="fondoA">
 
+
   <img src="./assets/logo.png" width="130" height="130"/>
 
-<ion-list>
-  <ion-item class="transparente">
-    <ion-input type="text" placeholder="Usuario"></ion-input>
-  </ion-item>
+<form [formGroup]="myForm" (ngSubmit)="guardarDatos()" novalidate>
 
-  <ion-item class="transparente">
-    <ion-input type="password" placeholder="Contraseña"></ion-input>
-  </ion-item>
 
-</ion-list>
+  <ion-list>
+    <ion-item class="transparente">
+      <ion-input [(ngModel)]="usuario" formControlName="usuario" type="text" placeholder="Usuario"></ion-input>
+    </ion-item>
+    <ion-item class="transparente" *ngIf="myForm.get('usuario').errors && myForm.get('usuario').dirty">
+      <p class="transparente" color="danger" ion-text *ngIf="myForm.get('usuario').hasError('required')">Campo Requerido</p>
+    </ion-item>
+
+    <ion-item class="transparente">
+      <ion-input [(ngModel)]="password"  formControlName="contraseña" type="password" placeholder="Contraseña"></ion-input>
+    </ion-item>
+    <ion-item class="transparente" *ngIf="myForm.get('contraseña').errors && myForm.get('contraseña').dirty">
+      <p color="danger" ion-text *ngIf="myForm.get('contraseña').hasError('required')">Campo Requerido</p>
+      <p color="danger" ion-text *ngIf="myForm.get('contraseña').hasError('pattern')">Contraseña Demaciados Corta</p>
+    </ion-item>
+
+  </ion-list>
+
+</form>
 <button ion-button color="dark" (click)="ingresar()" class="posicionBotonAdmin"  round >INGRESAR</button>
-
+<p color="danger" ion-text *ngIf="validacion">Datos Requeridos o incorrectos</p>
 
 </ion-content>

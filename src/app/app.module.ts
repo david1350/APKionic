@@ -41,6 +41,7 @@ import { HomeCPage} from '../pages/home-client/home-c/home-c';
 
 import { Camera, CameraOptions } from '@ionic-native/camera';
 
+
 @NgModule({
   declarations: [
     MyApp,
