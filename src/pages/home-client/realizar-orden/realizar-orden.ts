@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { GlobalProvider } from '../../../providers/global/global';
+import { ServiciosCliente } from '../../../providers/servicios-cliente';
 import { AlertController } from 'ionic-angular';
 /**
  * Generated class for the RealizarOrdenPage page.
@@ -18,9 +19,17 @@ export class RealizarOrdenPage {
 
 	date = new Date();
   costoPedido:number;
+  datosPedido = {};
+  mesa:string;
+  observaciones:string;
+  costo_total:string;
+  fecha:string;
+  estado:string;
+  productos:string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-  	public global: GlobalProvider, public alerta: AlertController) {
+  	public global: GlobalProvider, public alerta: AlertController,
+  public serviciosCliente: ServiciosCliente) {
       this.costoPedido = 0;
       this.calcularCostoPedido();
   }
@@ -31,12 +40,26 @@ export class RealizarOrdenPage {
      }
   }
 
+  enviarPedido (){
+    try{
+
+        this.serviciosCliente.addPedido(this.datosPedido);
+      //  this.navCtrl.pop();
+        alert("Registro Exitoso!")
+        this.global.listaOrden = [];
+        this.costoPedido = 0;
+     } catch (error) {
+       alert("Error al registrar");
+     }
+  }
+
 
    puedeHacerPedido (){
     if (this.global.listaOrden.length>=1){
-      return true;
-    }
+    return true;
+    }else{
     return false;
+    }
   }
 
 

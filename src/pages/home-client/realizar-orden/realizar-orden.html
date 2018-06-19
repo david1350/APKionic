@@ -15,32 +15,17 @@
 
 </ion-header>
 
-
-<ion-content padding class="fondoA">
-
-  <h4>Fecha: {{date.getDate() +"/" + (date.getMonth()+1) +"/"+ date.getFullYear()}} </h4>
-  <h4>Hora: {{date.getHours() + ":"+ date.getMinutes()}}</h4>
-  <h4>Mesa: </h4>
-  <h4>Observaciones:</h4>
-  <textarea  name="observaciones" rows="5" style="width:100%"></textarea>>
-
-
-  <ion-list  *ngFor="let platillo of global.listaOrden; let i"  (click)="removerPlatillo(platillo)">
-        <ion-item >
-          <ion-avatar item-start>
-            <img src="data:image/jpg;base64,{{platillo.imagen}}"  width="50" height="50" >
-          </ion-avatar>
-            <h1>{{platillo.nombre}}</h1>
-            <p>{{platillo.descripcion}}</p>
-            <h2>$ {{platillo.precio}}</h2>
-         </ion-item>
-   </ion-list>
-
-
-  <h3>Costo Total $ {{costoPedido}}  </h3>
-  <button ion-button  color="secondary" *ngIf='!puedeHacerPedido()' disabled class="botonDebajo">ENVIAR ORDEN</button>
-  <button ion-button  color="secondary" *ngIf='puedeHacerPedido()' enable class="botonDebajo">ENVIAR ORDEN</button>
-
-
-
+<ion-content >
+ <form method="POST">
+  <h3 class="textoCentrado">Enviar</h3>
+  <br>
+  <ion-list>
+    <ion-item>
+      <ion-input type="text" [(ngModel)]="datosPedido.mesa" name="mesa"></ion-input>
+    </ion-item>
+    <div>
+     <button ion-button  (click)="enviarPedido()" block>REGISTRAR</button>
+    </div>
+</ion-list>
+  </form>
 </ion-content>

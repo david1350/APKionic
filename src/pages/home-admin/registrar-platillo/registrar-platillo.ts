@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ServiciosAdmin } from '../../../providers/servicios-admin';
 import { Camera, CameraOptions } from '@ionic-native/camera';
+import { AlertController } from 'ionic-angular';
 
 /**
  * Generated class for the RegistrarPlatilloPage page.
@@ -25,7 +26,9 @@ export class RegistrarPlatilloPage {
   imagen:string = "./assets/img_base.png";
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-  public serviciosAdmin:ServiciosAdmin,private camera: Camera) {
+  public serviciosAdmin:ServiciosAdmin,private camera: Camera,
+private alertController: AlertController) {
+
   }
 
   registrarPlatillo(){
@@ -38,9 +41,55 @@ export class RegistrarPlatilloPage {
        }
       }
 
-  elegirGaleria(){
+    opcionCapturaImagen(){
+      console.log("capturando")
+    let myAlert = this.alertController.create({
+    title: 'Elegir Captura Imagen',
+    enableBackdropDismiss: true ,
+      message:'elija la opción de preferencia para cargar imagen.',
+      buttons:[
+      {
+      text: 'elegir',
+      handler: data => {
+
+        if(data=='galeria'){
+          this.elegirGaleria();
+        }
+        if(data=='camara'){
+          this.elegirCamara();
+        }
+          },
+      },
+      {
+      text: 'Cancelar',
+      handler: data => {
+          },      }
+      ],
+      inputs:[
+      {
+      type: 'radio',
+      id: 'camara',
+      name: 'camara',
+      'label': 'camara',
+      value: 'camara',
+      'checked': false
+      },
+      {
+      type: 'radio',
+      id: 'galeria',
+      name: 'galeria',
+      'label': 'galeria',
+      value: 'galeria',
+      'checked': false
+      }
+      ]
+      });
+      myAlert.present();
+    }
+
+  elegirCamara(){
       const options: CameraOptions = {
-      quality: 100,
+      quality: 70,
       destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE
@@ -51,6 +100,22 @@ export class RegistrarPlatilloPage {
     }, (err) => {
      // Handle error
     });
+  }
+
+  elegirGaleria(){
+    const options: CameraOptions = {
+    quality: 70,
+    destinationType: this.camera.DestinationType.DATA_URL,
+    sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+    saveToPhotoAlbum:false
+  }
+
+  this.camera.getPicture(options).then((imageData) => {
+   this.imagen = 'data:image/jpeg;base64,' + imageData;
+  }, (err) => {
+   console.log('error_elegir_galeria')
+  });
+
   }
 
 
