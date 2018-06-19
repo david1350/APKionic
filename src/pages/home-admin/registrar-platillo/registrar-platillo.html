@@ -16,22 +16,23 @@
 </ion-header>
 
 
-<ion-content class="fondoA" padding>
+<ion-content class="fondoA" align ="center" padding>
 
   <h3 class="textoCentrado">REGISTRAR PLATILLO</h3>
+  <br>
   <ion-list>
     <div>
 
     </div>
   <ion-item>
-      <ion-input type="text" placeholder="Nombre Platillo"></ion-input>
+      <ion-input type="text" placeholder="Nombre Platillo"></ion-input><button ion-button icon-end>FOTO</button>
   </ion-item>
-  <button ion-button icon-end>FOTO</button>
+
   <ion-item>
     <ion-input type="text" placeholder="Descripcion"></ion-input>
   </ion-item>
 </ion-list>
-   <p>Categoria</p>
+   <h5>Categoria</h5>
 
 <ion-list>
    <ion-item>
@@ -52,7 +53,9 @@
 <ion-item>
   <ion-input type="text" placeholder="$"></ion-input>
 </ion-item>
-   <img src="./assets/img_base.png" width="150" height="150" class="imagenCentrada"/>
+<br>
+   <img src="./assets/img_base.png" width="150" height="150" />
+   <br>
   <div>
      <button ion-button full (click)="registrarPlatillo()" class="botonDebajo">REGISTRAR</button>
   </div>
