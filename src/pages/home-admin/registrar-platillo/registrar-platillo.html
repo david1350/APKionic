@@ -21,29 +21,40 @@
   <h3 class="textoCentrado">REGISTRAR PLATILLO</h3>
   <br>
   <ion-list>
-    <div>
 
-    </div>
-  <ion-item>
-      <ion-input type="text" placeholder="Nombre Platillo"></ion-input><button ion-button icon-end>FOTO</button>
-  </ion-item>
 
-  <ion-item>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-9>
+          <ion-item class="transparente" >
+              <ion-input type="text" placeholder="Nombre Platillo"></ion-input><button ion-button icon-end>FOTO</button>
+          </ion-item>
+        </ion-col>
+        <ion-col col-3>
+          <button ion-button color="primary">FOTO</button>
+        </ion-col>
+
+      </ion-row>
+
+    </ion-grid>
+
+
+  <ion-item class="transparente">
     <ion-input type="text" placeholder="Descripcion"></ion-input>
   </ion-item>
 </ion-list>
    <h5>Categoria</h5>
 <br>
 <ion-list radio-group [(ngModel)]="relationship">
-  <ion-item>
+  <ion-item class="transparente">
     <ion-label>Platillo Principal</ion-label>
     <ion-radio value="platillo" checked></ion-radio>
   </ion-item>
-  <ion-item>
+  <ion-item class="transparente">
     <ion-label>Ensalada</ion-label>
     <ion-radio value="ensalada"></ion-radio>
   </ion-item>
-  <ion-item>
+  <ion-item class="transparente">
     <ion-label>Postre</ion-label>
     <ion-radio value="postre" [disabled]="isDisabled"></ion-radio>
   </ion-item>
@@ -51,7 +62,7 @@
 <br>
 
 
-<ion-item>
+<ion-item class="transparente">
   <ion-input type="text" placeholder="$"></ion-input>
 </ion-item>
 <br>
