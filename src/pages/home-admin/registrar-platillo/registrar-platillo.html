@@ -33,22 +33,23 @@
   </ion-item>
 </ion-list>
    <h5>Categoria</h5>
-
-<ion-list>
-   <ion-item>
-     <ion-label>Platillo Principal</ion-label>
-     <ion-checkbox color="dark" checked="false"></ion-checkbox>
-   </ion-item>
-   <ion-item>
-     <ion-label>Ensalada</ion-label>
-     <ion-checkbox color="dark" checked="false"></ion-checkbox>
-   </ion-item>
-   <ion-item>
-     <ion-label>Postre</ion-label>
-     <ion-checkbox color="dark" checked="false"></ion-checkbox>
-   </ion-item>
-
+<br>
+<ion-list radio-group [(ngModel)]="relationship">
+  <ion-item>
+    <ion-label>Platillo Principal</ion-label>
+    <ion-radio value="platillo" checked></ion-radio>
+  </ion-item>
+  <ion-item>
+    <ion-label>Ensalada</ion-label>
+    <ion-radio value="ensalada"></ion-radio>
+  </ion-item>
+  <ion-item>
+    <ion-label>Postre</ion-label>
+    <ion-radio value="postre" [disabled]="isDisabled"></ion-radio>
+  </ion-item>
 </ion-list>
+<br>
+
 
 <ion-item>
   <ion-input type="text" placeholder="$"></ion-input>

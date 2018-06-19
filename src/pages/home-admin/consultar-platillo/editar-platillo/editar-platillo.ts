@@ -15,9 +15,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class EditarPlatilloPage {
 
-  platillo:boolean = false;
-  ensalada:boolean = false;
-  postre:boolean = false;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
@@ -26,20 +23,6 @@ export class EditarPlatilloPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad EditarPlatilloPage');
   }
-  platilloAccion(){
-    this.platillo = true ;
-    this.ensalada = false;
-    this.postre = false;
-  }
-  ensaladaAccion(){
-    this.platillo = false ;
-    this.ensalada = true;
-    this.postre = false;
-  }
-  postreAccion(){
-    this.platillo = false ;
-    this.ensalada = false;
-    this.postre = true;
-  }
+
 
 }
