@@ -17,59 +17,56 @@
 
 
 <ion-content class="fondoA" align ="center" padding>
-
+ <form method="POST">
   <h3 class="textoCentrado">REGISTRAR PLATILLO</h3>
   <br>
   <ion-list>
-
-
     <ion-grid>
       <ion-row>
         <ion-col col-9>
           <ion-item class="transparente" >
-              <ion-input type="text" placeholder="Nombre Platillo"></ion-input><button ion-button icon-end>FOTO</button>
+              <ion-input type="text" placeholder="Nombre" [(ngModel)]="datosPlatillo.nombre" name="nombre"></ion-input>
+              <button ion-button icon-end (click)="elegirGaleria()">FOTO</button>
           </ion-item>
         </ion-col>
         <ion-col col-3>
           <button ion-button color="primary">FOTO</button>
         </ion-col>
-
       </ion-row>
-
     </ion-grid>
 
+    <ion-item class="transparente">
+      <ion-input type="text" placeholder="descripcion" [(ngModel)]="datosPlatillo.descripcion" name="descripcion"></ion-input>
+    </ion-item>
 
-  <ion-item class="transparente">
-    <ion-input type="text" placeholder="Descripcion"></ion-input>
-  </ion-item>
+    <h5>Categoria</h5>
+      <br>
+      <ion-list radio-group [(ngModel)]="datosPlatillo.categoria" name="categoria">
+      <ion-item class="transparente">
+       <ion-label>Platillo Principal</ion-label>
+       <ion-radio  value="platilloPrincipal"></ion-radio>
+      </ion-item>
+      <ion-item class="transparente">
+       <ion-label>Ensalada</ion-label>
+       <ion-radio value="ensalada"></ion-radio>
+      </ion-item>
+      <ion-item class="transparente">
+       <ion-label>Postre</ion-label>
+       <ion-radio value="postre"></ion-radio>
+      </ion-item>
+      </ion-list>
+      <br>
+
+    <ion-item class="transparente">
+    <ion-input type="number" placeholder="precio $" [(ngModel)]="datosPlatillo.precio" name="precio"></ion-input>
+    </ion-item>
+
+    <br>
+    <img  src={{imagen}} width="150" height="150" />
+    <br>
+    <div>
+     <button ion-button  (click)="registrarPlatillo()" block>REGISTRAR</button>
+    </div>
 </ion-list>
-   <h5>Categoria</h5>
-<br>
-<ion-list radio-group [(ngModel)]="relationship">
-  <ion-item class="transparente">
-    <ion-label>Platillo Principal</ion-label>
-    <ion-radio value="platillo" checked></ion-radio>
-  </ion-item>
-  <ion-item class="transparente">
-    <ion-label>Ensalada</ion-label>
-    <ion-radio value="ensalada"></ion-radio>
-  </ion-item>
-  <ion-item class="transparente">
-    <ion-label>Postre</ion-label>
-    <ion-radio value="postre" [disabled]="isDisabled"></ion-radio>
-  </ion-item>
-</ion-list>
-<br>
-
-
-<ion-item class="transparente">
-  <ion-input type="text" placeholder="$"></ion-input>
-</ion-item>
-<br>
-   <img src="./assets/img_base.png" width="150" height="150" />
-   <br>
-  <div>
-     <button ion-button full (click)="registrarPlatillo()" class="botonDebajo">REGISTRAR</button>
-  </div>
-
+  </form>
 </ion-content>

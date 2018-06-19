@@ -12,7 +12,7 @@ export class ServiciosAdmin {
   constructor(public http:HttpClient) {
 
     this.refListOrdenes = 'https://swiftservicefd.000webhostapp.com/ionic-app-servicios/serviciosAdmin/wsJSONConsultarListaPedidosHechos.php';
-    this.postCrearPlatillo = 'https://swiftservicefd.000webhostapp.com/ionic-app-servicios/serviciosAdmin/servicioRegistroPlatillo.php?';
+    this.postCrearPlatillo = 'https://swiftservicefd.000webhostapp.com/ionic-app-servicios/serviciosAdmin/servicioRegistroPlatillo.php';
     this.servicioConsultarPlatillo = 'https://swiftservicefd.000webhostapp.com/ionic-app-servicios/serviciosAdmin/servicioConsultarPlatillo.php?id_platillo=44';
   }
 
@@ -23,7 +23,7 @@ export class ServiciosAdmin {
 
 
   addPlatillo(platillo:any){
-    return this.http.post(this.postCrearPlatillo+platillo, JSON.stringify(platillo)).subscribe(respose=>{
+    return this.http.post(this.postCrearPlatillo, JSON.stringify(platillo)).subscribe(respose=>{
       return console.log(JSON.stringify(respose))
     });
   }

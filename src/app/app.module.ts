@@ -39,6 +39,8 @@ import { ListarPlatilloAdminPage } from '../pages/home-admin/listar-platillo-adm
 import { HomeAPage} from '../pages/home-admin/home-a/home-a';
 import { HomeCPage} from '../pages/home-client/home-c/home-c';
 
+import { Camera, CameraOptions } from '@ionic-native/camera';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -113,7 +115,8 @@ import { HomeCPage} from '../pages/home-client/home-c/home-c';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ServiciosGenerales, ServiciosAdmin, ServiciosCliente,
-    GlobalProvider
+    GlobalProvider,
+    Camera
   ]
 })
 export class AppModule {}
